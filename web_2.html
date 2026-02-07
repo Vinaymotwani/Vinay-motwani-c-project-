@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Traffic Light Simulator</title>
+
+    <!-- Linking external CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<h2>🚦 Traffic Light Simulator</h2>
+
+<div class="box">
+    <div id="red" class="light"></div>
+    <div id="yellow" class="light"></div>
+    <div id="green" class="light"></div>
+</div>
+
+<button id="btn">Next</button>
+
+<script>
+    // variable to track current light
+    let currentLight = "red";
+
+    // get button
+    const button = document.getElementById("btn");
+
+    // event handling
+    button.addEventListener("click", changeLight);
+
+    function changeLight() {
+
+        // turn all lights OFF
+        document.getElementById("red").style.background = "#333";
+        document.getElementById("yellow").style.background = "#333";
+        document.getElementById("green").style.background = "#333";
+
+        // control statements
+        if (currentLight === "red") {
+            document.getElementById("green").style.background = "green";
+            currentLight = "green";
+
+        } else if (currentLight === "green") {
+            document.getElementById("yellow").style.background = "yellow";
+            currentLight = "yellow";
+
+        } else {
+            document.getElementById("red").style.background = "red";
+            currentLight = "red";
+        }
+    }
+
+    // default light ON
+    document.getElementById("red").style.background = "red";
+</script>
+
+</body>
+</html>
